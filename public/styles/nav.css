@@ -1,0 +1,28 @@
+nav {
+  height: 120px;
+  width: 100%;
+  background-color: #4056A1;
+  color:#FFFFFF;
+  font-family: Source-Sans-Pro;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+#logo {
+  font-family: "bungee";
+  font-size: 150%;
+  color:#FFFFFF;
+}
+
+#arrow {
+  color: red;
+  display: flex;
+  justify-content: center;
+}
