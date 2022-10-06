@@ -1,0 +1,75 @@
+.tweet:hover {
+  box-shadow: 5px 5px lightsteelblue;
+}
+
+.tweet {
+  border: 5px solid #545149;
+  padding: 1em;
+  margin: 1.5em 1.5em;
+}
+
+#tweet-container {
+  width: 100%;
+}
+
+/* Top part of each tweet */
+.user-name {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em 1em;
+}
+
+.user-name > div {
+  display:flex;
+  flex-direction: row;
+}
+
+.user-name > div > span {
+  padding-right: 0.5em;
+}
+
+.handle {
+  color: rgb(177, 175, 175);
+  position: relative;
+  right: 0;
+}
+
+/* Body of each tweet */
+.content {
+  margin: .5em 0;
+  padding: 1.5em;
+  font-size: 100%;
+  border-bottom: 5px solid #545149;
+  overflow-wrap: break-word;
+}
+
+/* Bottom part of each tweet */
+.tweet-footer {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1em 1em;
+  font-size: 18px;
+  align-items: center;
+}
+
+.tweet-footer > div {
+  float: right;
+  width: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#flag:hover{
+  color: orange;
+}
+
+#retweet:hover{
+  color: orange;
+}
+
+#heart:hover{
+  color: orange;
+}

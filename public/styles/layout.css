@@ -32,4 +32,5 @@ body {
   align-self: center;
   justify-content: center;
   margin: 0 auto;
+  flex-wrap: wrap;
  }

@@ -24,6 +24,8 @@
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/tweet-container.css" type="text/css" />
+
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -45,7 +47,7 @@
     </div>
   </nav>
 
-  <header>
+  <header class="main-header">
     <div>
       <img src="/images/profile-hex.png">
     </div>
@@ -60,12 +62,41 @@
     <section class="new-tweet">
       <form action="/tweets" method="POST">
         <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-        <div>
+        <div class="footer-form">
           <button type="submit">Tweet</button>
           <output name="counter" class="counter" for="tweet-text">140</output>
         </div>
       </form>
     </section>
+
+    <section id="tweet-container">
+      <article class="tweet">
+
+        <header class="user-name">
+          <div>
+            <!-- <img> -->
+            <span>image</span>
+            <span> Newton </span>
+          </div>
+          <span class="handle">@SirIsaac</span>
+        </header>
+
+        <div class="content"> 
+          <span>If I have seen further it is by standing on the shoulders of giants</span>
+        </div>
+
+        <footer class="tweet-footer">
+          <p>10 days ago</p>
+          <div>
+            <i id="flag" class="fa-solid fa-flag"></i>
+            <i id="retweet" class="fa-solid fa-retweet"></i>
+            <i id="heart" class="fa-solid fa-heart"></i>
+          </div>
+        </footer>
+        
+      </article>
+    </section>
+
   </main>
 </body>
 
