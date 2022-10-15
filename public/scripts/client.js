@@ -4,83 +4,98 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
+
+$(document).ready(() => { //excutes only after HTML is loaded
+  $('.error-message').hide();
+  //check the tweet submitted isn't empty or exceeds max characters
+  const submitHandler = (text) => {
+    $('.error-message').hide();
+    if (text === "text=") {
+      $('.error-message').slideDown();
+      $('.error-message strong').text("Your tweet is empty!");
+      return;
+    } else if (text.length > 140) {
+      $('.error-message').slideDown();
+      $('.error-message strong').text("Your tweet exceeds the maximum characters!");
+      return;
+    } else {
+      //aync js always return a promise allows to send http request (get post put delete) without refreshing the page. Always start with ajax. a function inside jquery, starts with $
+      $.ajax({ //return a promise, so needs success or fail cb. async so need to know the page loaded and the tweet is submited before submitting
+        url: '/tweets',
+        method: 'POST',
+        data: text,
+        success: () => {
+          refresh();
+        }
+      })
+    }
   }
-]
 
-const renderTweets = function(tweets) {
-  for (const tweet of tweets) {
-    const renderedTweet = createTweetElement(tweet);
-    $('#tweet-container').append(renderedTweet);
+  const refresh = () => {
+    $('textarea').val('');
+    $('.counter').text(140);
+    $('#tweet-container').empty();
+    loadTweets();
+  };
+
+  //form submission using jquery, using $ to grab elements from the HTML
+  $('.tweet-form').submit(function (event) {
+    event.preventDefault();
+    submitHandler($(this).serialize());
+  })
+
+  //load tweets to the html page
+  const loadTweets = function () {
+    $.ajax({ url: './tweets', method: 'GET' })
+      .done(tweets => renderTweets(tweets)) //part of promises
+      .fail(error => console.log(`Error:`, error)) //part of promises
   }
-};
 
-const createTweetElement = function(tweet) {
-let $tweet = `<article class="tweet">
+  //loop through the tweets and append to the tweet container
+  const renderTweets = function (tweets) {
+    for (const tweet of tweets) {
+      const renderedTweet = createTweetElement(tweet);
+      $('#tweet-container').prepend(renderedTweet);
+    }
+  };
 
-<header class="user-name">
-  <div>
+  //prevent cross-site scripting(XSS) attack  - re-encodes user text so that unsafe characters are converted into a safe "encoded" representation
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
+  const createTweetElement = function (tweet) {
+    const timeStamp = timeago.format(tweet.created_at);
+
+    let $tweet = `<article class="tweet">
+    
+    <header class="user-name">
+    <div>
     <img src=${tweet.user.avatars}/>
     <span> ${tweet.user.name} </span>
-  </div>
-  <span class="handle">${tweet.user.handle}</span>
-</header>
+    </div>
+    <span class="handle">${tweet.user.handle}</span>
+    </header>
+    
+    <div class="content"> 
+    ${escape(tweet.content.text)}
+    </div>
+    
+    <footer class="tweet-footer">
+    <span>${timeStamp}</span>
+      <div>
+        <i id="flag" class="fa-solid fa-flag"></i>
+        <i id="retweet" class="fa-solid fa-retweet"></i>
+        <i id="heart" class="fa-solid fa-heart"></i>
+      </div>
+    </footer>
+    </article>`;
 
-<div class="content"> 
-  ${encodeURIComponent(tweet.content.text)}
-</div>
+    return $tweet;
+  }
 
-<footer class="tweet-footer">
-  <span>${tweet.created_at}</span>
-  <div>
-    <i id="flag" class="fa-solid fa-flag"></i>
-    <i id="retweet" class="fa-solid fa-retweet"></i>
-    <i id="heart" class="fa-solid fa-heart"></i>
-  </div>
-</footer>
-</article>`;
-return $tweet;
-}
+  loadTweets(); //first time that the page loads all the tweets
 
-{/* renderTweets(data); */}
-
-// Test / driver code (temporary). Eventually will get this from the server.
-const tweetData = {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-        "handle": "@SirIsaac"
-      },
-    "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-    "created_at": 1461116232227
- }
-
-const $tweet = createTweetElement(tweetData);
-
-// Test / driver code (temporary)
-console.log($tweet); // to see what it looks like
-$('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+});
