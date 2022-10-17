@@ -1,5 +1,5 @@
 .new-tweet {
-  width:100%;
+  width: 100%;
   padding: 2.6em 1.5em 1.5em 1.5em;
 }
 
@@ -38,22 +38,23 @@ button {
 }
 
 .footer-form {
-  display:flex;
+  display: flex;
   justify-content: space-between;
-  width: 100%
+  width: 100%;
 }
 
 .error-message {
   border: 2px solid;
-	margin: 10px auto;
-	padding: 15px 10px 15px 50px;
-	background-repeat: no-repeat;
-	background-position: 10px center;
-	max-width: 460px;
+  margin: 10px auto;
+  padding: 15px 10px 15px 50px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  max-width: 460px;
   color: #D8000C;
-	background-color: #FFBABA;
-	background-image: url('https://i.imgur.com/GnyDvKN.png');
+  background-color: #FFBABA;
+  background-image: url('https://i.imgur.com/GnyDvKN.png');
 }
+
 .hide {
-  display: none
+  display: none;
 }

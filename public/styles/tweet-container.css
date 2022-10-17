@@ -20,15 +20,18 @@
   margin: 1em 1em;
 }
 
+/* div holding user avatar and name */
 .user-name > div {
   display:flex;
   flex-direction: row;
 }
 
+/* user name */
 .user-name > div > span {
   padding-right: 0.5em;
 }
 
+/* user handle */
 .handle {
   color: rgb(177, 175, 175);
   position: relative;
@@ -54,6 +57,7 @@
   align-items: center;
 }
 
+/* three icons at the bottom of each tweet */
 .tweet-footer > div {
   float: right;
   width: 80px;
@@ -63,13 +67,13 @@
 }
 
 #flag:hover{
-  color: orange;
+  color: rgba(83, 0, 128, 0.728);
 }
 
 #retweet:hover{
-  color: orange;
+  color: rgba(83, 0, 128, 0.728);
 }
 
 #heart:hover{
-  color: orange;
+  color: rgba(83, 0, 128, 0.728);
 }

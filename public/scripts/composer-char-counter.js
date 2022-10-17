@@ -1,3 +1,4 @@
+//charcount, turns red when the user exceeds char limit
 $(document).ready(function () {
 
   $('textarea').on('input', function () {

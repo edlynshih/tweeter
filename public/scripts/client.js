@@ -1,13 +1,8 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
+//Client-side JS logic 
 
 $(document).ready(() => { //excutes only after HTML is loaded
   $('.error-message').hide();
-  //check the tweet submitted isn't empty or exceeds max characters
+  //check the tweet submitted isn't empty or exceeds max characters otherwise post it to the browser
   const submitHandler = (text) => {
     $('.error-message').hide();
     if (text === "text=") {
@@ -19,18 +14,19 @@ $(document).ready(() => { //excutes only after HTML is loaded
       $('.error-message strong').text("Your tweet exceeds the maximum characters!");
       return;
     } else {
-      //aync js always return a promise allows to send http request (get post put delete) without refreshing the page. Always start with ajax. a function inside jquery, starts with $
-      $.ajax({ //return a promise, so needs success or fail cb. async so need to know the page loaded and the tweet is submited before submitting
+      //aync js always return a promise allows to send http request (get post put delete) without refreshing the page. Always start with $.ajax, its a function inside jquery
+      $.ajax({ //return a promise, so needs success or fail cb. async so need to know the page is loaded and the tweet is submited before running
         url: '/tweets',
         method: 'POST',
         data: text,
         success: () => {
           refresh();
         }
-      })
+      });
     }
-  }
+  };
 
+  //reset the page so that textarea is empty and charcount is 140
   const refresh = () => {
     $('textarea').val('');
     $('.counter').text(140);
@@ -38,7 +34,7 @@ $(document).ready(() => { //excutes only after HTML is loaded
     loadTweets();
   };
 
-  //form submission using jquery, using $ to grab elements from the HTML
+  //form submission using jquery to grab elements from the HTML
   $('.tweet-form').submit(function (event) {
     event.preventDefault();
     submitHandler($(this).serialize());
@@ -47,8 +43,8 @@ $(document).ready(() => { //excutes only after HTML is loaded
   //load tweets to the html page
   const loadTweets = function () {
     $.ajax({ url: './tweets', method: 'GET' })
-      .done(tweets => renderTweets(tweets)) //part of promises
-      .fail(error => console.log(`Error:`, error)) //part of promises
+      .done(tweets => renderTweets(tweets))
+      .fail(error => console.log(`Error:`, error))
   }
 
   //loop through the tweets and append to the tweet container
@@ -66,6 +62,7 @@ $(document).ready(() => { //excutes only after HTML is loaded
     return div.innerHTML;
   };
 
+  //make the page dynamic
   const createTweetElement = function (tweet) {
     const timeStamp = timeago.format(tweet.created_at);
 

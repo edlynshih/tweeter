@@ -6,13 +6,14 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
+/* Global layout stuff */
 
 body {
   color: #545149;
@@ -21,11 +22,7 @@ body {
   font-family: "source sans pro", sans-serif;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-
- .container {
+.container {
   width: 90%;
   background-color: #f4f1ec;
   display: flex;
@@ -33,15 +30,13 @@ body {
   justify-content: center;
   margin: 0 auto;
   flex-wrap: wrap;
- }
+}
 
-
- @media (min-width: 769px) {
+@media (min-width: 769px) {
   .container {
     display: grid;
     grid-template-columns: 1fr 2fr;
     padding-top: 5em;
     margin-right: 2em;
   }
- }
-
+}

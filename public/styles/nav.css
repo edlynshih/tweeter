@@ -2,11 +2,11 @@
   height: 120px;
   width: 100%;
   background-color: rgba(83, 0, 128, 0.728);
-  color:#FFFFFF;
+  color: #FFFFFF;
   font-family: Source-Sans-Pro;
   padding-left: 1.5em;
   padding-right: 1.5em;
-  display:flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   position: absolute;
@@ -18,13 +18,24 @@
 #logo {
   font-family: "bungee";
   font-size: 150%;
-  color:#FFFFFF;
+  color: #FFFFFF;
 }
 
 #arrow {
   color: red;
   display: flex;
   justify-content: center;
+  animation: MoveUpDown 2s linear infinite;
+  position: relative;
+}
+
+@keyframes MoveUpDown {
+  0%, 100% {
+    bottom: 50;
+  }
+  0% {
+    bottom: 100px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -32,6 +43,7 @@
     background-color: rgba(83, 0, 128, 0.437);
     background-image: url("https://www.transparenttextures.com/patterns/rocky-wall.png");
   }
+
   .container {
     margin-right: 0;
     margin-left: 0;
