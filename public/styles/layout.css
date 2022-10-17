@@ -34,3 +34,14 @@ body {
   margin: 0 auto;
   flex-wrap: wrap;
  }
+
+
+ @media (min-width: 769px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding-top: 5em;
+    margin-right: 2em;
+  }
+ }
+

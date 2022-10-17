@@ -39,7 +39,7 @@
 
 <body>
   <!-- Top nav bar (fixed) -->
-  <nav>
+  <nav class="nav">
     <span id="logo">tweeter</span>
     <div>
       <span><strong>Write</strong> a new tweet</span>
@@ -48,35 +48,37 @@
     </div>
   </nav>
 
-  <header class="main-header">
-    <div>
-      <img src="/images/profile-hex.png">
-    </div>
-    <br>
-    <div>
-      <h2>Your Name</h2>
-    </div>
-  </header>
-
   <!-- Page-specific (main) content here -->
   <main class="container">
-    <section class="new-tweet">
-      <div id="error-msg" class="error-message">
-        <strong></strong>
+
+    <header class="main-header">
+      <div>
+        <img src="/images/profile-hex.png">
       </div>
-      <form class="tweet-form">
-        <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-        <div class="footer-form">
-          <button type="submit">Tweet</button>
-          <output name="counter" class="counter" for="tweet-text">140</output>
+      <div>
+        <h2>Your Name</h2>
+      </div>
+    </header>
+
+    <div>
+      <section class="new-tweet">
+        <div id="error-msg" class="error-message">
+          <strong></strong>
         </div>
-      </form>
-    </section>
-
-    <!-- This section contains individual tweets -->
-    <section id="tweet-container">
-    </section>
-
+        <form class="tweet-form">
+          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+          <div class="footer-form">
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+  
+      <!-- This section contains individual tweets -->
+      <section id="tweet-container">
+      </section>
+    </div>
+    
   </main>
 </body>
 

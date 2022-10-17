@@ -6,8 +6,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
   padding-top: 1.5em;
-  background-color: azure;
+  background-color: rgba(83, 0, 128, 0.437);
   background-image: url("https://www.transparenttextures.com/patterns/rocky-wall.png");
+}
+
+h2 {
+  color: #ffffff;
 }

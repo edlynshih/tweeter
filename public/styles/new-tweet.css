@@ -1,6 +1,6 @@
 .new-tweet {
   width:100%;
-  padding: 1.5em;
+  padding: 2.6em 1.5em 1.5em 1.5em;
 }
 
 form {
@@ -28,7 +28,7 @@ textarea {
 
 button {
   font-family: 'Bungee';
-  background-color: #4056A1;
+  background-color: rgba(83, 0, 128, 0.728);
   color: #ffffff;
 }
 

@@ -1,7 +1,7 @@
-nav {
+.nav {
   height: 120px;
   width: 100%;
-  background-color: #4056A1;
+  background-color: rgba(83, 0, 128, 0.728);
   color:#FFFFFF;
   font-family: Source-Sans-Pro;
   padding-left: 1.5em;
@@ -9,7 +9,7 @@ nav {
   display:flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 999;
@@ -25,4 +25,16 @@ nav {
   color: red;
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .nav {
+    background-color: rgba(83, 0, 128, 0.437);
+    background-image: url("https://www.transparenttextures.com/patterns/rocky-wall.png");
+  }
+  .container {
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+  }
 }
