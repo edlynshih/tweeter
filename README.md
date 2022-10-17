@@ -6,7 +6,8 @@ Built with HTML, CSS, JS, jQuery, AJAX on the front-end, and Node, Express on th
 
 ## Final Product
 
-!["screenshot of the tablet view with character count"](/Users/edlynshih/lighthouse_labs/tweeter/docs/Charcount.png)
+!["screenshot of the tablet view with character count"]
+(/Users/edlynshih/lighthouse_labs/tweeter/docs/Charcount.png)
 !["screenshot of the desktop view"](/Users/edlynshih/lighthouse_labs/tweeter/docs/Desk-top view.png)
 !["screenshot of empty tweet error message"](/Users/edlynshih/lighthouse_labs/tweeter/docs/Empty tweet.png)
 !["screenshot of exceed character count error message"](/Users/edlynshih/lighthouse_labs/tweeter/docs/Exceed charcount.png)
