@@ -6,7 +6,7 @@ Built with HTML, CSS, JS, jQuery, AJAX on the front-end, and Node, Express on th
 
 ## Final Product
 
-!["screenshot of the tablet view with character count"] (https://github.com/edlynshih/tweeter/blob/master/docs/Charcount.png)
+!["screenshot of the tablet view with character count"](https://github.com/edlynshih/tweeter/blob/master/docs/Charcount.png)
 
 !["screenshot of the desktop view"](https://github.com/edlynshih/tweeter/blob/master/docs/Desk-top%20view.png)
 
