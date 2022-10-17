@@ -7,8 +7,11 @@ Built with HTML, CSS, JS, jQuery, AJAX on the front-end, and Node, Express on th
 ## Final Product
 
 !["screenshot of the tablet view with character count"] (https://github.com/edlynshih/tweeter/blob/master/docs/Charcount.png)
+
 !["screenshot of the desktop view"](https://github.com/edlynshih/tweeter/blob/master/docs/Desk-top%20view.png)
+
 !["screenshot of empty tweet error message"](https://github.com/edlynshih/tweeter/blob/master/docs/Empty%20tweet.png)
+
 !["screenshot of exceed character count error message"](https://github.com/edlynshih/tweeter/blob/master/docs/Exceed%20charcount.png)
 
 ## Getting Started
