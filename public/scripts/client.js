@@ -6,7 +6,8 @@ $(document).ready(() => {
   //check the tweet submitted isn't empty or exceeds max characters otherwise post it to the browser
   const submitHandler = (text) => {
       //aync js always return a promise allows to send http request (get post put delete) without refreshing the page. Always start with $.ajax, its a function inside jquery
-      $.ajax({ //return a promise, so needs success or fail cb. async so need to know the page is loaded and the tweet is submited before running
+      //return a promise, so needs success or fail cb. async so need to know the page is loaded and the tweet is submited before running
+      $.ajax({ 
         url: '/tweets',
         method: 'POST',
         data: text,
