@@ -1,19 +1,10 @@
 //Client-side JS logic 
 
-$(document).ready(() => { //excutes only after HTML is loaded
+//excutes only after HTML is loaded
+$(document).ready(() => { 
   $('.error-message').hide();
   //check the tweet submitted isn't empty or exceeds max characters otherwise post it to the browser
   const submitHandler = (text) => {
-    $('.error-message').hide();
-    if (text === "text=") {
-      $('.error-message').slideDown();
-      $('.error-message strong').text("Your tweet is empty!");
-      return;
-    } else if (text.length > 140) {
-      $('.error-message').slideDown();
-      $('.error-message strong').text("Your tweet exceeds the maximum characters!");
-      return;
-    } else {
       //aync js always return a promise allows to send http request (get post put delete) without refreshing the page. Always start with $.ajax, its a function inside jquery
       $.ajax({ //return a promise, so needs success or fail cb. async so need to know the page is loaded and the tweet is submited before running
         url: '/tweets',
@@ -21,9 +12,12 @@ $(document).ready(() => { //excutes only after HTML is loaded
         data: text,
         success: () => {
           refresh();
+        }, 
+        error: () => {
+          $('.error-message').slideDown();
+          $('.error-message strong').text("Could not submit tweet");
         }
       });
-    }
   };
 
   //reset the page so that textarea is empty and charcount is 140
@@ -37,7 +31,19 @@ $(document).ready(() => { //excutes only after HTML is loaded
   //form submission using jquery to grab elements from the HTML
   $('.tweet-form').submit(function (event) {
     event.preventDefault();
-    submitHandler($(this).serialize());
+    const text = $(this).find('#tweet-text').val();
+    $('.error-message').hide();
+    if (text.length === 0) {
+      $('.error-message').slideDown();
+      $('.error-message strong').text("Your tweet is empty!");
+      return;
+    } else if (text.length > 140) {
+      $('.error-message').slideDown();
+      $('.error-message strong').text("Your tweet exceeds the maximum characters!");
+      return;
+    } else {
+      submitHandler($(this).serialize());
+    }
   })
 
   //load tweets to the html page
@@ -93,6 +99,6 @@ $(document).ready(() => { //excutes only after HTML is loaded
     return $tweet;
   }
 
-  loadTweets(); //first time that the page loads all the tweets
-
+  //first time that the page loads all the tweets
+  loadTweets(); 
 });
